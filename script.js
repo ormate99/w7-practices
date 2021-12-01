@@ -33,29 +33,57 @@ const inputElement = (type, name, title) => {
     `;
 }
 
+const selectElement = (type, name, label, options) => {
+    let optionsToSelect='';
+    for (const option of options) {
+        `optionsToSelect +=
+                <option>
+                    ${option}
+                </option>
+            }`;
+}
+
+return`
+        <div>
+        <label>${label} =</label>
+        <${type} name='${name}'>
+            ${optionsToSelect}
+        </${type}>
+        </div>
+`
+}
 
 const formElement = `
     <form id='form'>
-        ${inputElement('text', 'firstName', 'Keresztneved')}
         ${inputElement('file', 'profilePicture', 'Profilképed')}
+        ${inputElement('text', 'firstName', 'Keresztneved')}
         ${inputElement('email', 'personalEmail', 'Email címed')}
-        ${inputElement('radio', 'newsletter', 'Hírlevelet szeretnél kapni')}
+        ${selectElement('select', 'where', 'Hol hallottál rólunk?', ['interneten', 'ismerőstől', 'egyéb'])}
         ${inputElement('checkbox', 'terms', 'Elfogadom a felhasználási feltételeket')}
-        <button>ok</button>
+        ${inputElement('radio', 'newsletter', 'Hírlevelet szeretnél kapni')}
+        <button>Beküldés</button>
     </form>
 `;
 
-const formsubmit = (event) =>{
+const formSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target);
-    event.target.classList.add('submitted');
+    const et = event.target;
+    console.log(et);
+    et.classList.add('submitted');
+    let selectValue = et.querySelector(select[name="where"]).value;
+    console.log(selectValue);
 }
+
 
 //feltétel hogy csak akkor updateljen, ha az aktuális input mező amibe írnuk rendelkezik "firstName" name attributeummal (getAttribue segít) 
 
 const inputUpdate = (event) => {
-   document.getElementById('inputValue').innerHTML = event.target.value;
+    if (event.target.getAttribute("name") === "firstName") {
+        document.getElementById("inputValue").innerHTML = event.target.value;
+    }
+    console.log(event.target.closest("#form"));
 }
+
 
 function loadEvent() {
    const root = document.getElementById('root')
