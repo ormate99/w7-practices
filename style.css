@@ -18,7 +18,32 @@ form {
 
 }
 
-
-label {
-    color:pink;
+label{
+    display: block;
+    font-weight: bold;
+}
+  
+input[type="email"]{
+    width: 150px;
+}
+  
+input[type="text"]{
+    width: 150px;
+}
+  
+input[type=file]{
+    width: 150px;
+    color:transparent;
+}
+  
+button{
+    width: 80px;
+    height: 40px;
+    right: 25px;
+    position: absolute;
+    background-color: pink
+}
+  
+input:focus{
+    background-color: gray;
 }
