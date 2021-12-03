@@ -1,49 +1,82 @@
 body {
-    background-color: green;
+  background-color: green;
 }
 
 form {
-    padding-top: 1vh;
-
-
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 10px;
-
-    font-family: 'Poppins', sans-serif;
-    font-size: large;
-    font-weight: bold;
-
-    border: 10px groove red;
-
+  padding-top: 1vh;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: large;
+  font-weight: bold;
+  border: 10px groove red;
 }
 
-label{
-    display: block;
-    font-weight: bold;
+label {
+  display: block;
+  font-weight: bold;
 }
-  
-input[type="email"]{
-    width: 150px;
+
+input[type="email"] {
+  width: 150px;
 }
-  
-input[type="text"]{
-    width: 150px;
+
+input[type="text"] {
+  width: 150px;
 }
-  
-input[type=file]{
-    width: 150px;
-    color:transparent;
+
+input[type=file] {
+  width: 150px;
+  color: transparent;
 }
-  
-button{
-    width: 80px;
-    height: 40px;
-    right: 25px;
-    position: absolute;
-    background-color: pink
+
+button {
+  width: 80px;
+  height: 40px;
+  right: 25px;
+  position: absolute;
+  background-color: pink;
 }
-  
-input:focus{
-    background-color: gray;
+
+input:focus {
+  background-color: gray;
 }
+
+#form div.file {
+  position: relative;
+  height: 80px;
+  background-color: grey;
+}
+
+#form div.file::after {
+  content: 'Kattints vagy huzd ide a fajlodat';
+  font-weight: 300;
+  display: block;
+}
+
+#form div.file label {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#form div.file input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#inputValue img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+/*# sourceMappingURL=style.css.map */
